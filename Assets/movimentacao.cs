@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class movimentacao : MonoBehaviour
 {
+    bool pulando = false;
+    int inicioPulo = 0;
+    int frameAtual = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bool pulando = false;
-        int inicioPulo = 0;
-        int frameAtual = 0;
+        
     }
 
     // Update is called once per frame
@@ -17,17 +19,17 @@ public class movimentacao : MonoBehaviour
 
         if (Input.GetKey("d"))
         {
-            transform.Translate(0.05f, 0, 0);
+            this.transform.Translate(0.05f, 0, 0);
         }
 
         if (Input.GetKey("a"))
         {
-            transform.Translate(-0.05f, 0, 0);
+            this.transform.Translate(-0.05f, 0, 0);
         }
 
-        if (Input.GetKey("space"))&&pulando == false&& Physics.CheckSphere(transform.position, 0.2f)
+        if (Input.GetKey("space"))&& pulando == false && Physics.CheckSphere(transform.position, 0.2f);
         {
-            pulando = true; 
+            pulando = true;
             inicioPulo = frameAtual;
         }
 
@@ -40,6 +42,5 @@ public class movimentacao : MonoBehaviour
         {
             this.transform.Translate(0, 0.05f, 0);
         }
-
     }
 }
